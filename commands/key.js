@@ -2,6 +2,9 @@ const inquirer = require('inquirer');
 const colors = require('colors');
 
 const KeyManager = require('../lib/KeyManager');
+const {
+  isRequired
+} = require('../utils/validation');
 
 const key = {
   async set() {
@@ -10,6 +13,7 @@ const key = {
       type: 'input',
       name: 'key',
       message: 'Enter API Key '.green + 'https://nomics.com',
+      validate: isRequired
     }]);
 
     const key = keyManager.setKey(input.key);
