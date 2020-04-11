@@ -1,7 +1,10 @@
 #!/usr/bin/env node
+
 const program = require('commander');
 
-console.log('Hello from coindex');
+const pkg = require('../package.json');
 
-const [, , ...argv] = process.argv;
-console.log(argv);
+program
+  .version(pkg.version)
+  .command('key', 'Manage API Key -- https://nomics.com')
+  .parse(process.argv);
